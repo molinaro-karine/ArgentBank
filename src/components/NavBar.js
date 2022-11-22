@@ -1,9 +1,18 @@
 import React from "react";
 import logo from "../assets/argentBankLogo.png";
 import "./navBar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../features/User/sliceUtilisateur";
 
 function NavBar() {
+  const dispatch = useDispatch();
+  const utilisateur = useSelector((state) => state.user);
+
+  const signOut = () => {
+    dispatch(logout());
+  };
+
   return (
     <nav className="main-nav">
       <Link to="/">
@@ -12,10 +21,30 @@ function NavBar() {
       <h1 className="sr-only">Argent Bank</h1>
 
       <div>
-        <Link to={"/login"} className="main-nav-item">
-          <i className="fa fa-user-circle"></i>
-          Sign In
-        </Link>
+        {utilisateur.connected ? (
+          <div className="profilNav">
+            {window.location.href.indexOf("profil") > -1 ? (
+              <div className="main-nav-item">
+                <i className="fa fa-user-circle"></i>
+                {utilisateur.firstName}
+              </div>
+            ) : (
+              <NavLink className="main-nav-item" to="profil">
+                <i className="fa fa-user-circle"></i>
+                {utilisateur.firstName}
+              </NavLink>
+            )}
+            <NavLink className="main-nav-item" to="" onClick={signOut}>
+              <i className="fa fa-sign-out"></i>
+              Sign Out
+            </NavLink>
+          </div>
+        ) : (
+          <NavLink className="main-nav-item" to="login">
+            <i className="fa fa-user-circle"></i>
+            Sign In
+          </NavLink>
+        )}
       </div>
     </nav>
   );

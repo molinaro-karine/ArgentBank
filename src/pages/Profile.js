@@ -1,6 +1,6 @@
 import React from "react";
 import { accounts } from "../datas/Accounts";
-// styles
+
 import NavBar from "../components/NavBar";
 import UserCard from "../components/UserCard";
 import Footer from "../components/Footer";
