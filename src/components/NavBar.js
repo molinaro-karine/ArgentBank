@@ -3,11 +3,11 @@ import logo from "../assets/argentBankLogo.png";
 import "./navBar.css";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../features/User/sliceUtilisateur";
+import { logout } from "../features/User/sliceUser";
 
 function NavBar() {
   const dispatch = useDispatch();
-  const utilisateur = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
 
   const signOut = () => {
     dispatch(logout());
@@ -21,17 +21,17 @@ function NavBar() {
       <h1 className="sr-only">Argent Bank</h1>
 
       <div>
-        {utilisateur.connected ? (
+        {user.connected ? (
           <div className="profilNav">
             {window.location.href.indexOf("profil") > -1 ? (
               <div className="main-nav-item">
                 <i className="fa fa-user-circle"></i>
-                {utilisateur.firstName}
+                {user.firstName}
               </div>
             ) : (
               <NavLink className="main-nav-item" to="profil">
                 <i className="fa fa-user-circle"></i>
-                {utilisateur.firstName}
+                {user.firstName}
               </NavLink>
             )}
             <NavLink className="main-nav-item" to="" onClick={signOut}>

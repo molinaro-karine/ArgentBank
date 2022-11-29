@@ -1,22 +1,26 @@
-.erreurConnexion {
+.not-found {
+  width: 100%;
+  height: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.not-found_title {
+  font-size: 10rem;
+  padding: 3rem;
+  color: #00bc77;
+}
+
+.not-found_subtitle {
+  padding: 2rem;
+  color: #036843;
+}
+
+.not-found_link {
   color: red;
-  padding: 1rem;
-}
-
-.changeNom {
-  margin-left: 1rem;
-}
-
-@media (min-width: 720px) {
-  .account {
-    flex-direction: row;
-  }
-
-  .account-content-wrapper.cta {
-    flex: 0;
-  }
-
-  .transaction-button {
-    width: 200px;
-  }
+  padding: 5rem;
 }

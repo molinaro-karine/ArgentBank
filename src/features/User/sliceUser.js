@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const sliceUtilisateur = createSlice({
+const sliceUser = createSlice({
   // le nom du slice
   name: "user",
   // le state initial
@@ -38,7 +38,7 @@ const sliceUtilisateur = createSlice({
 });
 
 // on extrait les actions et le reducer
-const { actions, reducer } = sliceUtilisateur;
+const { actions, reducer } = sliceUser;
 // on export chaque action individuellement
 export const { login, logout, setUser, updateUser } = actions;
 // on export le reducer comme default export

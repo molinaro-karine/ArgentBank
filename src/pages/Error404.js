@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-/**
- * Handles the non existing paths (404 error) and displays an error message
- * @returns {jsx}
- */
-function Erreur404() {
+import "./error404.css";
+
+function Error404() {
   return (
-    <div>
-      <h1>Erreur 404</h1>
-      <Link to="/" div>
-        Retourner sur la page d'accueil
+    <section className="not-found">
+      <div>
+        <h1 className="not-found_title">404</h1>
+        <h2 className="not-found_subtitle">
+          Oups! La page que vous demandez n'existe pas.
+        </h2>
+      </div>
+
+      <Link to="/" className="not-found_link">
+        Retourner sur la page d’accueil
       </Link>
-    </div>
+    </section>
   );
 }
 
-export default Erreur404;
+export default Error404;

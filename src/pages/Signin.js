@@ -1,31 +1,8 @@
-/*import React from "react";
-import { Fragment } from "react";
-
-import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
-import SignInForm from "../components/SignInForm";
-
-import "./signin.css";
-
-function SignIn() {
-  return (
-    <Fragment>
-      <NavBar />
-      <main className="main bg-dark">
-        <SignInForm />
-      </main>
-      <Footer />
-    </Fragment>
-  );
-}
-
-export default SignIn;*/
-
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-import { login } from "../features/User/sliceUtilisateur";
+import { login } from "../features/User/sliceUser";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -33,8 +10,8 @@ import axios from "axios";
 
 import "./signin.css";
 
-export default function Connexion() {
-  const [donnees, dataModif] = useState({ email: "", password: "" });
+export default function Signin() {
+  const [donnees, datasModif] = useState({ email: "", password: "" });
   const [rememberMe, setRememberMe] = useState(false);
   const [erreur, setErreur] = useState("");
 
@@ -48,9 +25,9 @@ export default function Connexion() {
       const { data: res } = await axios.post(url, donnees);
       dispatch(login({ ...res, token: res.body.token }));
       if (rememberMe) {
-        localStorage.setItem("JWTutilisateur", JSON.stringify(res.body.token));
+        localStorage.setItem("JWTuser", JSON.stringify(res.body.token));
       }
-      navigate("/profil");
+      navigate("/profile");
     } catch (error) {
       setErreur(error.message);
     }
@@ -71,7 +48,7 @@ export default function Connexion() {
                 name="email"
                 id="username"
                 onChange={(event) =>
-                  dataModif({
+                  datasModif({
                     ...donnees,
                     [event.target.name]: event.target.value,
                   })
@@ -85,7 +62,7 @@ export default function Connexion() {
                 name="password"
                 id="password"
                 onChange={(event) =>
-                  dataModif({
+                  datasModif({
                     ...donnees,
                     [event.target.name]: event.target.value,
                   })
@@ -101,7 +78,9 @@ export default function Connexion() {
               <label htmlFor="remember-me">Remember me</label>
             </div>
             {erreur && (
-              <div className="erreurConnexion">{"Error : " + erreur}</div>
+              <div className="erreurLogin">
+                {"Le nom ou le mot de passe n'est pas valide "}
+              </div>
             )}
             <input type="submit" value="Sign In" className="sign-in-button" />
           </form>
