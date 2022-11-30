@@ -22,6 +22,8 @@ function Profile() {
   const refFirstName = useRef("");
   const refLastName = useRef("");
 
+  const toggleEditing = false;
+
   const clicEditName = () => {
     setEdition(!edition);
     setValeurs({
@@ -124,29 +126,36 @@ function Profile() {
             <div className="header">
               <h1>Edit your Name :</h1>
               <form onSubmit={newName}>
-                <div className="input-wrapper">
-                  <label htmlFor="firstName"></label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder={user.firstName}
-                    ref={refFirstName}
-                    onChange={modifName}
-                    className="account"
-                  />
+                <div className="wrapper">
+                  <div className="input-wrapper">
+                    <label htmlFor="firstName"></label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder={user.firstName}
+                      ref={refFirstName}
+                      onChange={modifName}
+                      className="account"
+                    />
+                  </div>
+                  <div className="input-wrapper">
+                    <label htmlFor="lastName"></label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder={user.lastName}
+                      ref={refLastName}
+                      onChange={modifName}
+                      className="account"
+                    />
+                  </div>
                 </div>
-                <div className="input-wrapper">
-                  <label htmlFor="lastName"></label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder={user.lastName}
-                    ref={refLastName}
-                    onChange={modifName}
-                    className="account"
-                  />
+                <div className="wrapper-button">
+                  <button className="edit-button">Change Name</button>
+                  <button className="edit-button" onClick={() => toggleEditing}>
+                    Cancel
+                  </button>
                 </div>
-                <button className="edit-button">Change Name</button>
               </form>
             </div>
           ) : (
