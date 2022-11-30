@@ -106,11 +106,8 @@ function Profile() {
           })
         );
         setChargement(false);
-      } catch (e) {
-        if (e.response) {
-          throw new Error(e.response.data.message);
-        }
-        throw new Error(`Erreur: ${e.message}`);
+      } catch (error) {
+        navigate("/*");
       }
     };
     datasUser();

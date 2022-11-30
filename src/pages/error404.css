@@ -10,13 +10,12 @@
 }
 
 .not-found_title {
-  font-size: 10rem;
-  padding: 3rem;
+  font-size: 8rem;
+  padding: 1rem;
   color: #00bc77;
 }
 
 .not-found_subtitle {
-  padding: 2rem;
   color: #036843;
 }
 
