@@ -47,7 +47,9 @@
   color: #fff;
   margin-bottom: 2rem;
 }
-
+.profilNav {
+  display: flex;
+}
 .transaction-button {
   display: block;
   width: 100%;

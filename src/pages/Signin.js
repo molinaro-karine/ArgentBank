@@ -79,7 +79,7 @@ export default function Signin() {
             </div>
             {erreur && (
               <div className="erreurLogin">
-                {"Le nom ou le mot de passe n'est pas valide "}
+                {"Username and/or password are invalid "}
               </div>
             )}
             <input type="submit" value="Sign In" className="sign-in-button" />
