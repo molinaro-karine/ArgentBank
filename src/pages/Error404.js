@@ -9,12 +9,12 @@ function Error404() {
       <div>
         <h1 className="not-found_title">404</h1>
         <h2 className="not-found_subtitle">
-          Oups! La page que vous demandez n'existe pas.
+          Whoops ! The page you requested does not exist.
         </h2>
       </div>
 
       <Link to="/" className="not-found_link">
-        Retourner sur la page d’accueil
+        Return to the home page
       </Link>
     </section>
   );
