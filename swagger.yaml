@@ -3,8 +3,8 @@ swagger: '2.0'
 info:
   title: Argent Bank (+ transactions) API documentation
   description: Contains all available API endpoints in this codebase
-  version: '1.0.1'
-  termsOfService: 'http://swagger.io/terms/'
+  version: 1.0.1
+  termsOfService: http://swagger.io/terms/
 host: localhost:3001
 basePath: /api/v1
 schemes:
@@ -120,7 +120,9 @@ paths:
       tags:
         - User Transactions Module
       summary: User Transactions API
-      description: API for retrieving all of the user's transactions
+      description: >-
+        API for fetching all of the user's transactions on accountID for the
+        current month
       parameters:
         - in: header
           name: Authorization
@@ -143,8 +145,8 @@ paths:
         - Bearer: []
       tags:
         - User Transactions Module
-      summary: User Transaction API
-      description: API for posting a new transaction for this user
+      summary: User add Transaction API
+      description: API for posting a new transaction for specific user on accountID
       parameters:
         - in: header
           name: Authorization
@@ -174,8 +176,10 @@ paths:
         - Bearer: []
       tags:
         - User Transactions Module
-      summary: User Transaction API
-      description: API for retrieving a specific transaction for this user
+      summary: User Transaction details API
+      description: >-
+        API for retrieving a specific transaction for specific user on
+        transactionId
       parameters:
         - in: path
           name: transactionId
@@ -202,7 +206,7 @@ paths:
         - Bearer: []
       tags:
         - User Transactions Module
-      summary: User Transactions API
+      summary: User update transactions API
       description: API for updating a specific transaction for this user
       parameters:
         - in: path
@@ -298,7 +302,7 @@ definitions:
           transactions:
             type: array
             items:
-              $ref: "#/definitions/Transaction"
+              $ref: '#/definitions/Transaction'
   Transaction:
     type: object
     properties:
